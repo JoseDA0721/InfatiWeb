@@ -153,7 +153,7 @@ export function SettingsPage() {
         <aside className="preview" aria-labelledby="vista-previa">
           <h2 id="vista-previa">Vista previa</h2>
           <div className="preview__card">
-            <img src={asset('escena_cumple')} alt="Sofía celebra su cumpleaños" />
+            <img src={asset('m1a1q1')} alt="Sofía sonríe en su fiesta de cumpleaños mientras recibe un regalo" />
             <p className="preview__prompt">Es el cumpleaños de Sofía. ¿Cómo se siente?</p>
             <div className="preview__faces">
               {(['alegria', 'tristeza', 'enojo'] as const).map((e, i) => (

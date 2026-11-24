@@ -105,7 +105,7 @@ function ModuleTrack({ module, currentId, stage }: { module: MapModule; currentI
   return (
     <section className={`world ${module.unlocked ? '' : 'world--locked'}`} aria-labelledby={`mundo-${module.id}`}>
       <header className="world__banner">
-        <img src={asset(module.icon)} alt="" className="world__icon" />
+        <img src={asset(module.icon)} alt="" className="world__cover" loading="lazy" />
         <div className="world__copy">
           <h2 id={`mundo-${module.id}`}>
             <Link to={`/mapa/${module.id}`}>{module.title}</Link>

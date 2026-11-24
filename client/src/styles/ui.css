@@ -716,3 +716,22 @@ input[type='range'] {
     transform: rotate(360deg);
   }
 }
+
+/* ───────── Ilustraciones ───────── */
+.art-icon {
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--ink);
+  border-radius: 28%;
+  color: var(--ink);
+  box-shadow: 0 4px 0 rgb(59 47 99 / 0.18);
+}
+.art-icon svg {
+  inline-size: 52%;
+  block-size: 52%;
+}
+/* Stickers recortados: borde blanco grueso y una sombra suave, como un sticker real. */
+.sticker-art {
+  filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+    drop-shadow(0 6px 8px rgb(59 47 99 / 0.25));
+}

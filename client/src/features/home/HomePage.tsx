@@ -98,7 +98,7 @@ export function HomePage() {
             const previous = modules[i - 1];
             const content = (
               <>
-                <img className="module-card__icon" src={asset(module.icon)} alt="" />
+                <img className="module-card__cover" src={asset(module.icon)} alt="" loading="lazy" />
                 <span className="module-card__body">
                   <strong className="module-card__title">{module.title}</strong>
                   {module.unlocked ? (

@@ -23,11 +23,18 @@
   background: var(--surface);
   text-align: center;
 }
-.intro__step img {
+.intro__art {
   inline-size: 100%;
   block-size: 9rem;
   object-fit: contain;
   margin-block-end: var(--s-2);
+}
+img.intro__art {
+  border-radius: var(--r-md);
+}
+.art-icon.intro__art {
+  inline-size: 7rem;
+  block-size: 7rem;
 }
 .intro__step p {
   color: var(--ink-soft);
@@ -57,11 +64,12 @@
   gap: var(--s-3);
   align-items: center;
 }
-.howto img {
-  inline-size: 4rem;
-  block-size: 4rem;
+.howto__art {
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
   flex: none;
   object-fit: contain;
+  border-radius: var(--r-sm);
 }
 .howto p {
   color: var(--ink-soft);
@@ -188,9 +196,6 @@
   object-fit: contain;
   border-radius: var(--r-lg);
   transition: transform 420ms var(--ease-out);
-}
-.scene--face img {
-  padding: var(--s-4);
 }
 .scene.is-zoomed img {
   transform: scale(1.65);
@@ -695,10 +700,9 @@ html[data-motion='reducido'] .scene.is-zoomed img {
   block-size: 4rem;
   object-fit: contain;
 }
-.express-option--reason img {
-  inline-size: 100%;
-  block-size: 5rem;
-  border-radius: var(--r-sm);
+.express-option__art {
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
 }
 .express-option.is-selected {
   border-color: var(--action);
@@ -892,6 +896,8 @@ html[data-motion='reducido'] .scene.is-zoomed img {
 }
 .prize__sticker {
   transform: rotate(-6deg);
+  filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
+    drop-shadow(0 4px 5px rgb(59 47 99 / 0.25));
 }
 .prize small {
   display: block;
@@ -969,8 +975,10 @@ html[data-motion='reducido'] .scene.is-zoomed img {
     text-align: start;
     column-gap: var(--s-4);
   }
-  .intro__step img {
+  .intro__art,
+  .art-icon.intro__art {
     grid-row: span 2;
+    inline-size: 5rem;
     block-size: 5rem;
     margin: 0;
   }

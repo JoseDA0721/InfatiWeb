@@ -13,9 +13,20 @@
   border-radius: var(--r-lg);
   background: var(--surface);
 }
-.world__icon {
-  inline-size: 3.5rem;
-  block-size: 3.5rem;
+.world__cover {
+  inline-size: 6.5rem;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  border-radius: var(--r-md);
+}
+.module__cover {
+  inline-size: 10rem;
+  aspect-ratio: 4 / 3;
+  flex: none;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
 }
 .world__copy {
   display: grid;
@@ -40,7 +51,7 @@
   border-style: dashed;
   background: #f1eff6;
 }
-.world--locked .world__icon {
+.world--locked .world__cover {
   filter: grayscale(1);
   opacity: 0.6;
 }
@@ -211,9 +222,12 @@ a.station:hover .station__disc {
     padding: var(--s-3) var(--s-4);
     gap: var(--s-3);
   }
-  .world__icon {
-    inline-size: 2.75rem;
-    block-size: 2.75rem;
+  .world__cover {
+    inline-size: 4.5rem;
+  }
+  .module__cover {
+    inline-size: 100%;
+    max-inline-size: 18rem;
   }
   .station__text {
     max-inline-size: 11rem;

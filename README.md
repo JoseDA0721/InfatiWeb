@@ -98,7 +98,8 @@ El historial de Mateo se arma según la fecha del día en que se crea la base. S
 InfatiWeb/
 ├─ client/                 React + Vite
 │  └─ src/
-│     ├─ assets/           Ilustraciones SVG (Context/assets + escenas nuevas en el mismo estilo)
+│     ├─ assets/           Vectores SVG (caras, insignias, pictogramas, Nubi)
+│     │  └─ ilustraciones/ Escenas por pregunta, portadas, stickers, avatares y tutorial (WebP)
 │     ├─ components/       Button, Modal, Stars, Nubi, SpeakButton, PinPad, PictureKey, WeeklyGoal…
 │     ├─ features/         welcome, auth, tutorial, home, map, activities, rewards, profile,
 │     │                    settings, help, family, preferences

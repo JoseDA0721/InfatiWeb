@@ -29,7 +29,10 @@
   border: 2px dashed var(--line-strong);
   border-radius: var(--r-md);
   font-weight: 800;
-  opacity: 0.65;
+}
+.stages li:not(.is-reached) .nubi {
+  filter: grayscale(1);
+  opacity: 0.45;
 }
 .stages li small {
   display: block;
@@ -40,7 +43,6 @@
   border-style: solid;
   border-color: var(--action);
   background: var(--surface);
-  opacity: 1;
 }
 
 .badge-grid {
@@ -107,15 +109,19 @@
   color: var(--ink-soft);
 }
 .sticker.is-earned {
-  border: 3px solid var(--surface);
-  background: var(--surface);
+  border: 2px solid transparent;
   color: var(--ink);
-  box-shadow: 0 6px 14px -8px rgb(59 47 99 / 0.45);
+}
+.sticker.is-earned img {
   transform: rotate(var(--tilt));
+  animation: pop 520ms var(--ease-out) both;
 }
 .sticker img {
-  inline-size: 4.5rem;
-  block-size: 4.5rem;
+  inline-size: 5.5rem;
+  block-size: 5.5rem;
+  object-fit: contain;
+  filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+    drop-shadow(0 5px 6px rgb(59 47 99 / 0.28));
 }
 .sticker__empty {
   display: grid;

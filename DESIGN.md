@@ -47,4 +47,10 @@ Una entrada suave por página (`rise`, 320 ms, ease-out exponencial), estrellas 
 
 ## Ilustraciones
 
-Del equipo (`Context/assets`): logo, Nubi, caras, 3 escenas, insignias, estrellas, pictogramas y avatares. Creadas en este repositorio con el mismo vocabulario geométrico (SVG escritos a mano, sin generación de imágenes): escenas `escena_escuela`, `escena_parque`, `escena_lluvia`, `escena_mesa`, `escena_amigos`, `escena_dormir`; pictogramas `picto_mapa`, `picto_premios`; variantes de color `insignia_detective_{tristeza,enojo,miedo,sorpresa}`.
+Dos familias que conviven, ambas con contorno violeta oscuro (`#3B2F63`):
+
+- **Cuento ilustrado** (`client/src/assets/ilustraciones/*.webp`, generadas con la IA de Figma): escenas 2D con textura de gouache, niñas y niños latinoamericanos, acentos lila. Una escena propia para cada pregunta (43), portadas de módulo, tutorial, avatares y 19 stickers recortados. Se muestran a 4:3 con esquinas de 16–24 px; los stickers llevan borde blanco y sombra por CSS (`.sticker-art`). Origen y estilo de los prompts en `ilustraciones/README.md`.
+- **Vectores** (`client/src/assets/*.svg`, dibujados a mano): caras de emociones con cejas, ojos y boca distintos por emoción (la pista visual que se enseña), medallas con emblema (lupa con la emoción en las de detective), estrellas, pictogramas en baldosa con sombra inferior y Nubi sin fondo.
+- **Íconos de razones** («Expreso lo que siento»): íconos de `lucide-react` dentro de una baldosa pastel con borde violeta (`components/ArtImage.tsx`, `.art-icon`).
+
+Las imágenes originales del equipo siguen en `Context/assets` como referencia; en la app las reemplazan las versiones nuevas con los mismos nombres donde aplica (caras, insignias, estrellas, pictogramas, Nubi).

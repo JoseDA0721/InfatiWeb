@@ -13,7 +13,7 @@ export function Scene({ question, zoomable = false }: { question: QuestionBase; 
   const src = asset(question.scene);
   if (!src) return null;
   return (
-    <figure className={`scene ${zoom ? 'is-zoomed' : ''} ${question.scene?.startsWith('emo_') ? 'scene--face' : ''}`}>
+    <figure className={`scene ${zoom ? 'is-zoomed' : ''}`}>
       <div className="scene__frame">
         <img src={src} alt={question.sceneAlt ?? ''} />
       </div>

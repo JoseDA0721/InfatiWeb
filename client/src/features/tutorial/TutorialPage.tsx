@@ -18,17 +18,20 @@ const STEPS = [
   {
     title: 'Elige una aventura',
     text: 'Recorre el mapa y toca una estación abierta para empezar a jugar.',
-    art: 'picto_mapa',
+    art: 'tutorial_mapa',
+    alt: 'Un camino de colores con estaciones entre colinas, como un mapa de aventuras',
   },
   {
     title: 'Gana estrellas mientras aprendes',
     text: 'Cada intento cuenta. Aquí nunca pierdes estrellas por equivocarte.',
-    art: 'estrella_llena',
+    art: 'tutorial_estrellas',
+    alt: 'Una niña salta feliz atrapando estrellas doradas',
   },
   {
     title: 'Pide ayuda cuando la necesites',
     text: 'El botón Escuchar lee todo en voz alta. El botón Ayuda está siempre arriba.',
-    art: 'picto_ayuda',
+    art: 'tutorial_ayuda',
+    alt: 'Un niño levanta la mano para pedir ayuda y su abuela se acerca a escucharlo',
   },
 ];
 
@@ -60,9 +63,9 @@ export function TutorialPage() {
       </header>
 
       <div className="tutorial__stage" key={step}>
-        <div className="tutorial__art" aria-hidden="true">
-          <Nubi size={220} stage={step === 1 ? 2 : 1} float />
-          <img src={asset(current.art)} alt="" className="tutorial__item" />
+        <div className="tutorial__art">
+          <img src={asset(current.art)} alt={current.alt} className="tutorial__picture" />
+          <Nubi size={120} stage={step === 1 ? 2 : 1} float className="tutorial__nubi" />
         </div>
         <p className="tutorial__step num">Paso {step + 1} de 3</p>
         <h1 className="tutorial__title" aria-live="polite">

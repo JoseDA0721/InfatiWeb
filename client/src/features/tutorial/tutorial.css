@@ -31,13 +31,19 @@
 .tutorial__art {
   position: relative;
 }
-.tutorial__item {
+.tutorial__picture {
+  inline-size: min(22rem, 72vw, 40dvh);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 4px solid var(--surface);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-float);
+  animation: pop 520ms var(--ease-out) both;
+}
+.tutorial__nubi {
   position: absolute;
-  inset-block-end: 0;
-  inset-inline-end: -1.5rem;
-  inline-size: 5.5rem;
-  block-size: 5.5rem;
-  animation: pop 520ms 200ms var(--ease-out) both;
+  inset-block-end: -1.5rem;
+  inset-inline-start: -3rem;
 }
 .tutorial__step {
   color: var(--action);
@@ -78,7 +84,8 @@
   .tutorial__top .logo__text {
     display: none;
   }
-  .tutorial__art .nubi {
-    inline-size: 10rem;
+  .tutorial__nubi {
+    inline-size: 5.5rem;
+    inset-inline-start: -1rem;
   }
 }

@@ -1,9 +1,18 @@
-/** Ilustraciones del equipo (Context/assets) indexadas por nombre de archivo sin extensión. */
-const files = import.meta.glob<string>('../assets/*.svg', { eager: true, query: '?url', import: 'default' });
+/**
+ * Imágenes indexadas por nombre de archivo sin extensión:
+ * - assets/*.svg: vectores (caras, insignias, estrellas, pictogramas, Nubi).
+ * - assets/ilustraciones/*.webp: ilustraciones de cuento (escenas por pregunta,
+ *   portadas de módulo, stickers, avatares y tutorial).
+ */
+const files = import.meta.glob<string>(['../assets/*.svg', '../assets/ilustraciones/*.webp'], {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
 
 const byName: Record<string, string> = {};
 for (const [path, url] of Object.entries(files)) {
-  const name = path.split('/').pop()!.replace('.svg', '');
+  const name = path.split('/').pop()!.replace(/\.(svg|webp)$/, '');
   byName[name] = url;
 }
 

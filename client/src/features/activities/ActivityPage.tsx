@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { CircleHelp, LogOut } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
+import { ArtImage } from '../../components/ArtImage';
 import { Button } from '../../components/Button';
 import { Modal } from '../../components/Modal';
 import { Nubi } from '../../components/Nubi';
@@ -9,7 +10,6 @@ import { SpeakButton } from '../../components/SpeakButton';
 import { ErrorState, LoadingState } from '../../components/States';
 import { useOverrideBack } from '../../layouts/BackContext';
 import { api } from '../../lib/api';
-import { asset } from '../../lib/assets';
 import { keys, useInvalidateProgress, useSession } from '../../lib/queries';
 import type { Activity, ChoiceQuestion as ChoiceQ, ExpressQuestion as ExpressQ, FinishResult, PairQuestion as PairQ } from '../../lib/types';
 import { useAutoRead } from '../preferences/PreferencesContext';
@@ -47,7 +47,7 @@ function Intro({ activity, onStart, starting, error }: { activity: Activity; onS
             <span className="intro__num num" aria-hidden="true">
               {i + 1}
             </span>
-            <img src={asset(step.image)} alt="" />
+            <ArtImage name={step.image} className="intro__art" />
             <h2>
               <span className="sr-only">Paso {i + 1}: </span>
               {step.title}
@@ -77,7 +77,7 @@ function HowToPlay({ activity, open, onClose }: { activity: Activity; open: bool
       <ol className="howto">
         {steps.map((s, i) => (
           <li key={s.title}>
-            <img src={asset(s.image)} alt="" />
+            <ArtImage name={s.image} className="howto__art" />
             <div>
               <strong>
                 {i + 1}. {s.title}

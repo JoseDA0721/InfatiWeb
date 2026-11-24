@@ -28,7 +28,7 @@ export function ModulePage() {
   return (
     <div className="page module">
       <header className="page-head">
-        <img className="page-head__icon" src={asset(module.icon)} alt="" />
+        <img className="module__cover" src={asset(module.icon)} alt="" />
         <div>
           <h1>{module.title}</h1>
           <p className="lead num">

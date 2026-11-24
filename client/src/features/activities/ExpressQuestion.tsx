@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ArtImage } from '../../components/ArtImage';
 import { SpeakButton } from '../../components/SpeakButton';
 import { asset } from '../../lib/assets';
 import type { ExpressQuestion as ExpressQuestionType } from '../../lib/types';
@@ -98,7 +99,7 @@ export function ExpressQuestion({ question, attemptId, isLast, onResolved, onNex
               disabled={done}
               onClick={() => pick(setReasonId, r.id, r.label)}
             >
-              <img src={asset(r.image)} alt="" />
+              <ArtImage name={r.image} className="express-option__art" />
               <span>{r.label}</span>
             </button>
           ))}
