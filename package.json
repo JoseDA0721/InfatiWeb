@@ -1,0 +1,24 @@
+{
+  "name": "infantiweb",
+  "private": true,
+  "version": "1.0.0",
+  "description": "InfantiWeb · Mi Mundo Emocional. Prototipo de alta fidelidad para niños de 6 a 10 años y sus familias.",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"npm:dev -w server\" \"npm:dev -w client\"",
+    "build": "npm run build -w client && npm run build -w server",
+    "start": "npm run start -w server",
+    "db:reset": "npm run db:reset -w server",
+    "test": "npm run test -w server && npm run test -w client",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

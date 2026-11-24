@@ -1,0 +1,306 @@
+/* ───────── Mapa: camino con estaciones ───────── */
+.world {
+  display: grid;
+  gap: var(--s-3);
+}
+.world__banner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+.world__icon {
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+}
+.world__copy {
+  display: grid;
+  gap: 0.125rem;
+}
+.world__copy h2 a {
+  color: var(--ink);
+  text-decoration-color: var(--lilac-deep);
+}
+.world__copy h2 a:hover {
+  text-decoration-color: var(--action);
+}
+.world__copy p {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.world__lock {
+  inline-size: 1.75rem;
+  color: var(--ink-soft);
+}
+.world--locked .world__banner {
+  border-style: dashed;
+  background: #f1eff6;
+}
+.world--locked .world__icon {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.track {
+  --row-h: 8.25rem;
+  --disc: 5.25rem;
+  position: relative;
+  inline-size: min(100%, 44rem);
+  block-size: calc(var(--rows) * var(--row-h));
+  margin-inline: auto;
+}
+.trail {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+}
+.trail path {
+  fill: none;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+.trail__todo {
+  stroke: var(--line-strong);
+  stroke-dasharray: 1 18;
+  opacity: 0.8;
+}
+.trail__done {
+  stroke: var(--action);
+  stroke-dasharray: 1 18;
+}
+.track__stations {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.station-row {
+  position: relative;
+  block-size: var(--row-h);
+}
+.station {
+  position: absolute;
+  inset-block-start: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  max-inline-size: calc(100% - var(--disc));
+  padding: 0;
+  border-radius: var(--r-lg);
+  color: var(--ink);
+  text-decoration: none;
+  transform: translateY(-50%);
+}
+.station.is-left {
+  inset-inline-start: calc(var(--x) - var(--disc) / 2);
+}
+.station.is-right {
+  inset-inline-end: calc(100% - var(--x) - var(--disc) / 2);
+  flex-direction: row-reverse;
+  text-align: end;
+}
+.station__disc {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: var(--disc);
+  block-size: var(--disc);
+  border: 4px solid var(--action);
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  color: var(--action);
+  box-shadow: 0 6px 0 rgb(59 47 99 / 0.12);
+  transition: transform 180ms var(--ease-out);
+}
+.station__disc img {
+  inline-size: 70%;
+  block-size: 70%;
+}
+.station__disc svg {
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  stroke-width: 3;
+}
+a.station:hover .station__disc {
+  transform: scale(1.06);
+}
+.station__text {
+  display: grid;
+  gap: 0.125rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--r-md);
+  background: rgb(247 244 255 / 0.92);
+}
+.station.is-right .station__text {
+  justify-items: end;
+}
+.station__text strong {
+  font-size: var(--text-base);
+  line-height: 1.2;
+}
+.station__text small {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+.station--completada .station__disc {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+.station--bloqueada .station__disc {
+  border-style: dashed;
+  border-color: var(--line-strong);
+  background: #efedf3;
+  color: var(--ink-soft);
+  box-shadow: none;
+}
+.station--bloqueada .station__text {
+  opacity: 0.8;
+}
+.station.is-current .station__disc {
+  border-width: 5px;
+  background: var(--lilac);
+  animation: beacon 2.2s ease-out infinite;
+}
+.station.is-current .station__text small {
+  color: var(--action);
+}
+@keyframes beacon {
+  0% {
+    box-shadow: 0 0 0 0 rgb(91 75 160 / 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 1.1rem rgb(91 75 160 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(91 75 160 / 0);
+  }
+}
+.station .stars {
+  margin-block-start: 0.125rem;
+}
+
+/* Nubi camina hasta la estación actual. */
+.track__nubi {
+  position: absolute;
+  inset-block-start: calc(var(--row) * var(--row-h) + var(--row-h) / 2 - var(--disc) - 1.4rem);
+  inset-inline-start: calc(var(--x) - 0.25rem);
+  z-index: 2;
+  pointer-events: none;
+  transition:
+    inset-block-start 1100ms var(--ease-out),
+    inset-inline-start 1100ms var(--ease-out);
+}
+
+@media (max-width: 640px) {
+  .track {
+    --row-h: 7.5rem;
+    --disc: 4.5rem;
+  }
+  .world__banner {
+    padding: var(--s-3) var(--s-4);
+    gap: var(--s-3);
+  }
+  .world__icon {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+  }
+  .station__text {
+    max-inline-size: 11rem;
+  }
+  .track__nubi .nubi {
+    inline-size: 64px;
+  }
+}
+
+/* ───────── Detalle de módulo ───────── */
+.activity-list {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.activity-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+.activity-row__pos {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  background: var(--lilac);
+  color: var(--action-strong);
+  font-weight: 900;
+  font-size: var(--text-lg);
+}
+.activity-row--done .activity-row__pos {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.activity-row__body {
+  display: grid;
+  gap: 0.25rem;
+}
+.activity-row__body h2 {
+  font-size: var(--text-lg);
+}
+.activity-row__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.activity-row__meta svg {
+  inline-size: 1.1rem;
+}
+.activity-row__status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.activity-row__locked {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--ink-soft);
+  font-weight: 800;
+}
+.activity-row__locked svg {
+  inline-size: 1.25rem;
+}
+.activity-row--locked {
+  background: #f6f4fa;
+  border-style: dashed;
+}
+@media (max-width: 640px) {
+  .activity-row {
+    grid-template-columns: auto 1fr;
+    padding: var(--s-4);
+  }
+  .activity-row > .btn,
+  .activity-row__locked {
+    grid-column: 1 / -1;
+  }
+}

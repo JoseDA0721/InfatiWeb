@@ -1,0 +1,270 @@
+/* ───────── Barra superior ───────── */
+.topbar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  border-block-end: 2px solid var(--line);
+  background: rgb(255 255 255 / 0.94);
+  backdrop-filter: saturate(1.4) blur(10px);
+}
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  inline-size: min(100% - 2rem, 80rem);
+  min-block-size: 4.5rem;
+  margin-inline: auto;
+}
+.topbar__brand {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--tap);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+}
+.topbar__nav {
+  display: flex;
+  gap: 0.25rem;
+  margin-inline-start: auto;
+  padding: 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--lilac-soft);
+}
+.topbar__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.topbar--public .topbar__tools {
+  margin-inline-start: auto;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: var(--tap-lg);
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  border: 2px solid var(--action);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--action);
+  font-weight: 900;
+  font-size: var(--text-base);
+  cursor: pointer;
+}
+.back-btn svg {
+  flex: none;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  stroke-width: 3;
+}
+.back-btn:hover {
+  background: var(--lilac);
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: var(--tap-lg);
+  padding: 0.375rem 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: var(--text-base);
+  text-decoration: none;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  border-color: var(--line);
+  background: var(--surface);
+}
+.nav-btn[aria-current='page'],
+.nav-btn.active {
+  border-color: var(--action);
+  background: var(--lilac);
+  color: var(--action-strong);
+}
+.nav-btn__picto {
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+  object-fit: contain;
+}
+.nav-btn__picto.is-avatar {
+  border: 2px solid var(--action);
+  border-radius: 50%;
+  background: var(--surface);
+}
+.nav-btn__icon {
+  flex: none;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  stroke-width: 2.4;
+}
+.nav-btn.is-muted {
+  color: var(--danger);
+}
+
+.child-main,
+.public-main {
+  inline-size: min(100% - 2rem, var(--page-max));
+  margin-inline: auto;
+  padding-block: var(--s-6) var(--s-8);
+}
+.child-main:focus,
+.public-main:focus,
+.family-main:focus {
+  outline: none;
+}
+
+.page {
+  display: grid;
+  gap: var(--s-6);
+  animation: rise 320ms var(--ease-out);
+}
+.page-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  justify-content: space-between;
+}
+.page-head > div {
+  display: grid;
+  gap: var(--s-2);
+}
+.page-head__icon {
+  inline-size: 5rem;
+  block-size: 5rem;
+  flex: none;
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-block-end: var(--s-4);
+}
+.section-title {
+  margin-block-end: var(--s-3);
+}
+.section-sub {
+  margin-block: calc(-1 * var(--s-2)) var(--s-4);
+  color: var(--ink-soft);
+}
+
+/* ───────── Barra inferior (celular) ───────── */
+.tabbar {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .topbar__nav {
+    display: none;
+  }
+  .topbar__tools {
+    margin-inline-start: auto;
+  }
+  .tabbar {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.25rem;
+    padding: 0.375rem 0.5rem calc(0.375rem + env(safe-area-inset-bottom));
+    border-block-start: 2px solid var(--line);
+    background: rgb(255 255 255 / 0.97);
+    box-shadow: 0 -10px 30px -18px rgb(59 47 99 / 0.45);
+  }
+  .tabbar__item {
+    display: grid;
+    justify-items: center;
+    gap: 0.125rem;
+    min-block-size: 3.5rem;
+    padding: 0.25rem 0.125rem;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .tabbar__item img {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+  }
+  .tabbar__item img.is-avatar {
+    border: 2px solid var(--action);
+    border-radius: 50%;
+  }
+  .tabbar__item.active {
+    border-color: var(--action);
+    background: var(--lilac);
+    color: var(--action-strong);
+  }
+  .child-main {
+    padding-block-end: calc(6.5rem + env(safe-area-inset-bottom));
+  }
+  /* Dentro de una actividad: modo enfocado, con Volver y Salir siempre visibles arriba. */
+  .child-app.is-focus .tabbar {
+    display: none;
+  }
+  .child-app.is-focus .child-main {
+    padding-block-end: var(--s-6);
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar__inner {
+    inline-size: calc(100% - 1rem);
+    gap: var(--s-2);
+    min-block-size: 4rem;
+  }
+  .topbar__brand .logo__text {
+    display: none;
+  }
+  .nav-btn {
+    padding-inline: 0.5rem;
+  }
+  .topbar__tools .nav-btn__label {
+    font-size: 0.875rem;
+  }
+  .child-main,
+  .public-main {
+    inline-size: calc(100% - 1.5rem);
+    padding-block-start: var(--s-5);
+  }
+  .page {
+    gap: var(--s-5);
+  }
+  .page-head {
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+  .page-head__icon {
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
+  }
+  .section-head {
+    flex-wrap: wrap;
+  }
+}
+
+/* En pantallas de 360 px el logo cede su lugar: Inicio sigue en la barra inferior
+   y todos los íconos conservan su texto. */
+@media (max-width: 400px) {
+  .child-app .topbar__brand {
+    display: none;
+  }
+  .back-btn {
+    padding-inline: 0.625rem;
+  }
+}

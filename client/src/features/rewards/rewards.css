@@ -1,0 +1,145 @@
+.mascot-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--s-5);
+  background: linear-gradient(135deg, var(--lilac), var(--surface) 70%);
+}
+.mascot-card__copy {
+  display: grid;
+  gap: var(--s-2);
+}
+.mascot-card__hint {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin: var(--s-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.stages li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--r-md);
+  font-weight: 800;
+  opacity: 0.65;
+}
+.stages li small {
+  display: block;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.stages li.is-reached {
+  border-style: solid;
+  border-color: var(--action);
+  background: var(--surface);
+  opacity: 1;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+.badge img {
+  inline-size: 5.5rem;
+  block-size: 5.5rem;
+  flex: none;
+}
+.badge > div {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-1);
+}
+.badge p {
+  color: var(--ink-soft);
+}
+.badge.is-pending {
+  border-style: dashed;
+  background: #f6f4fa;
+}
+.badge.is-pending img {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--s-3);
+  margin: 0;
+  padding: var(--s-5);
+  border-radius: var(--r-xl);
+  background: #fff8e6;
+  border: 2px solid #f1dfae;
+  list-style: none;
+}
+.sticker {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-2);
+  border: 2px dashed #e7d29b;
+  border-radius: var(--r-md);
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+.sticker.is-earned {
+  border: 3px solid var(--surface);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 6px 14px -8px rgb(59 47 99 / 0.45);
+  transform: rotate(var(--tilt));
+}
+.sticker img {
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
+}
+.sticker__empty {
+  display: grid;
+  place-items: center;
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
+  border-radius: 50%;
+  background: #f4e7c2;
+  color: #8a7440;
+  font-size: var(--text-2xl);
+  font-weight: 900;
+}
+
+@media (max-width: 640px) {
+  .mascot-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .stages {
+    justify-content: center;
+  }
+  .album {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: var(--s-3);
+  }
+}

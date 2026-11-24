@@ -1,0 +1,84 @@
+.tutorial {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  justify-items: center;
+  gap: var(--s-4);
+  min-block-size: 100dvh;
+  padding: var(--s-4) var(--s-4) var(--s-6);
+  background: radial-gradient(circle at 50% 38%, var(--lilac) 0 16rem, transparent 16.1rem), var(--lilac-soft);
+  text-align: center;
+}
+.tutorial__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  inline-size: min(100%, 72rem);
+}
+.tutorial__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.tutorial__stage {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--s-3);
+  max-inline-size: 40rem;
+  animation: rise 360ms var(--ease-out);
+}
+.tutorial__art {
+  position: relative;
+}
+.tutorial__item {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: -1.5rem;
+  inline-size: 5.5rem;
+  block-size: 5.5rem;
+  animation: pop 520ms 200ms var(--ease-out) both;
+}
+.tutorial__step {
+  color: var(--action);
+  font-weight: 900;
+}
+.tutorial__title {
+  font-size: var(--text-2xl);
+}
+.tutorial__text {
+  font-size: var(--text-xl);
+  color: var(--ink-soft);
+}
+.tutorial__dots {
+  display: flex;
+  gap: var(--s-2);
+}
+.tutorial__dots span {
+  inline-size: 0.9rem;
+  block-size: 0.9rem;
+  border-radius: var(--r-pill);
+  background: var(--line-strong);
+  transition: inline-size 300ms var(--ease-out);
+}
+.tutorial__dots .is-active {
+  inline-size: 2.5rem;
+  background: var(--action);
+}
+.tutorial__dots .is-done {
+  background: var(--action);
+}
+.tutorial__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+}
+@media (max-width: 480px) {
+  .tutorial__top .logo__text {
+    display: none;
+  }
+  .tutorial__art .nubi {
+    inline-size: 10rem;
+  }
+}
